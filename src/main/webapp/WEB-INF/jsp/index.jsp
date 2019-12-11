@@ -24,31 +24,18 @@
 </nav>
 
 <div class="container">
+    <c:choose>
+        <c:when test="${mode == 'WELCOME'}">
+            <h3>Welcome ...</h3>
+            <p>Tutorial springboot + jsp + flyway (migration) + lombok (auto setter getter).</p>
+        </c:when>
+        <c:when test="${mode == 'BOOK_LIST'}">
+            <jsp:include page="book/index.jsp"></jsp:include>
+        </c:when>
+    </c:choose>
 
-    <h3>Welcome ...</h3>
-    <p>Tutorial springboot + jsp + flyway (migration) + lombok (auto setter getter).</p>
 
-    <h2>Books Table</h2>
-    <p>List of books</p>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Code</th>
-            <th>Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="book" items="${books}">
-            <tr>
-                <td>${book.id}</td>
-                <td>${book.code}</td>
-                <td>${book.name}</td>
-            </tr>
-        </c:forEach>
 
-        </tbody>
-    </table>
 </div>
 
 </body>

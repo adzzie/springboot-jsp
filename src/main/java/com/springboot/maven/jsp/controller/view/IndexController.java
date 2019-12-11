@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Description IndexController
  *
@@ -14,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @GetMapping("")
-    public String index(){
+    public String index(HttpServletRequest request){
+        request.setAttribute("mode","WELCOME");
         return "index";
     }
 }

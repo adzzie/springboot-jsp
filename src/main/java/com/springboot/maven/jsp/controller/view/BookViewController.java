@@ -22,6 +22,7 @@ public class BookViewController {
     @GetMapping(value = {"/index",""})
     public String index(HttpServletRequest request){
         request.setAttribute("books",bookService.findAllBooks());
+        request.setAttribute("mode","BOOK_LIST");
         return "index";
     }
 }
