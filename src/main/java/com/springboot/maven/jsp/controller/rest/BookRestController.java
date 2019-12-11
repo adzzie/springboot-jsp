@@ -28,8 +28,8 @@ public class BookRestController {
     }
 
     @GetMapping("/delete")
-    public void delete(@RequestParam String id){
-        bookService.delete(id);
+    public void deleteBook(@RequestParam String id){
         System.out.println("delete");
+        bookService.delete(id);
     }
 }
