@@ -12,4 +12,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BookDao extends CrudRepository<Book,String>, PagingAndSortingRepository<Book, String> {
+//    Book findOne(String id);
 }

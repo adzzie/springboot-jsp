@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Description BookService
@@ -32,6 +33,11 @@ public class BookService {
 
     public Page<Book> findAllBooks(Pageable page){
         return bookDao.findAll(page);
+    }
+
+    public Optional<Book> findById(String id){
+        return bookDao.findById(id);
+
     }
 
     public void delete(String id){

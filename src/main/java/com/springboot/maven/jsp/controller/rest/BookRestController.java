@@ -5,12 +5,10 @@ import com.springboot.maven.jsp.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  * Description BookRestController
@@ -24,14 +22,25 @@ public class BookRestController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/get_all_book")
+    @GetMapping("/")
     public Collection<Book> getAllBooks(){
         return bookService.findAllBooks();
     }
 
-    @GetMapping("/get_all_book_page")
+    @GetMapping("/page")
     public Page<Book> findAllBooks(Pageable pageable){
         return bookService.findAllBooks(pageable);
+    }
+
+    @GetMapping("/{id}")
+    public Book findById(@PathVariable("id") Book b){
+        return b;
+    }
+
+    @GetMapping("/get/{id}")
+    public Optional<Book> findById(@PathVariable("id") String id){
+        return bookService.findById(id);
+
     }
 
     @GetMapping("/delete")
