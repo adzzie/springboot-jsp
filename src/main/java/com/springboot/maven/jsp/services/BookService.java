@@ -3,6 +3,8 @@ package com.springboot.maven.jsp.services;
 import com.springboot.maven.jsp.dao.BookDao;
 import com.springboot.maven.jsp.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,6 +28,10 @@ public class BookService {
             books.add(book);
         }
         return books;
+    }
+
+    public Page<Book> findAllBooks(Pageable page){
+        return bookDao.findAll(page);
     }
 
     public void delete(String id){
